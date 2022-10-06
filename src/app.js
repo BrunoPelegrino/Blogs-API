@@ -19,6 +19,7 @@ userControler.createUser);
 app.get('/user', authToken, userControler.getUsers);
 app.get('/user/:id', authToken, userControler.getUsersById);
 app.post('/categories', authToken, categoryController.createCategory);
+app.get('/categories', authToken, categoryController.getCategories);
 // ...
 
 // É importante exportar a constante `app`,
