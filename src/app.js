@@ -3,6 +3,7 @@ const loginControler = require('./controllers/login.controller');
 const userControler = require('./controllers/user.controller');
 const { validateDisplayName, validateEmail,
     validatePassword } = require('./middlewares/createUser.validation');
+const { authToken } = require('./middlewares/JWT.validation');
 
 // ...
 
@@ -14,6 +15,7 @@ app.post('/user', validateDisplayName,
 validatePassword,
 validateEmail, 
 userControler.createUser);
+app.get('/user', authToken, userControler.getUsers);
 // ...
 
 // É importante exportar a constante `app`,
