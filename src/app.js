@@ -16,6 +16,7 @@ validatePassword,
 validateEmail, 
 userControler.createUser);
 app.get('/user', authToken, userControler.getUsers);
+app.get('/user/:id', authToken, userControler.getUsersById);
 // ...
 
 // É importante exportar a constante `app`,

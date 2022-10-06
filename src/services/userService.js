@@ -8,12 +8,21 @@ const createUser = async (displayName, email, password, image) => {
 
 const getUsers = async () => {
   const getAll = await User.findAll({
-    attributes: ['displayName', 'email', 'image'],
+    attributes: ['id', 'displayName', 'email', 'image'],
   });
   return getAll;
+};
+
+const getUserById = async (id) => {
+  const getById = await User.findOne({ 
+    attributes: ['id', 'displayName', 'email', 'image'],
+    where: { id }, 
+  });
+  return getById;
 };
 
 module.exports = {
   createUser,
   getUsers,
+  getUserById,
 };
