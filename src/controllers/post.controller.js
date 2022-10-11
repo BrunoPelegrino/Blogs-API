@@ -5,9 +5,9 @@ const createPost = async (req, res) => {
   const { title, content, categoryIds } = req.body;
   const { user } = req;
   const post = await postService.createPost({ title, content, userId: user.id });
-  categoryIds
+  await Promise.all(categoryIds
     .map(async (categoryId) => 
-     postService.createPostCategory({ postId: post.id, categoryId }));
+     postService.createPostCategory({ postId: post.id, categoryId })));
 
   return res.status(201).json(post);
 };
