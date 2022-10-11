@@ -13,7 +13,23 @@ const getCategories = async () => {
   return getAllCategories;
 };
 
+/* const getByid = async (ids) => {
+  const verifdyIds = await Category.findOne({ 
+    attributes: ['id'],
+    where: ids });
+  return verifdyIds;
+}; */
+
+const getByid = async () => {
+  const getAllCategories = await Category.findAll({
+    attributes: ['id'],
+  });
+  return getAllCategories;
+};
+
 module.exports = {
   createCategory,
   getCategories,
+  getByid,
+
 };
