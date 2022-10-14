@@ -25,8 +25,20 @@ const getPostsById = async (req, res) => {
   return res.status(200).json(posts);
 };
 
+const updatePost = async (req, res) => {
+  const { id } = req.user;
+  const { title, content } = req.body;
+  const teste = await postService.getPostsById(id);
+  // console.log(teste.userId);
+  await postService.updatePost(id, title, content);
+  if (id !== teste.userId) return res.status(401).json({ message: 'Unauthorized user' });
+  const newPost = await postService.getPostsById(id);
+  return res.status(200).json(newPost);
+};
+
 module.exports = {
   createPost,
   getPosts,
   getPostsById,
+  updatePost,
 };
