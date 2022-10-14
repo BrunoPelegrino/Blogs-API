@@ -27,6 +27,17 @@ const getPosts = async () => {
   return posts;
 };
 
+const getPostsById = async (id) => {
+  const posts = await BlogPost.findByPk(id, {
+    // where: { id },
+    include: [
+      { model: User, as: 'user', attributes: ['id', 'displayName', 'email', 'image'] }, 
+      { model: Category, as: 'categories', through: { attributes: [] } },
+    ], 
+  });
+  return posts;
+};
+
 const createPostCategory = async ({ postId, categoryId }) => { 
 const newPostCategory = await PostCategory.create({ postId, categoryId });
 return newPostCategory;
@@ -35,4 +46,5 @@ module.exports = {
   createPost,
   createPostCategory,
   getPosts,
+  getPostsById,
 };
