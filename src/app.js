@@ -26,6 +26,7 @@ app.post('/categories', authToken, categoryController.createCategory);
 app.get('/categories', authToken, categoryController.getCategories);
 app.post('/post', authToken, createPostValidation, catergoryValidation, postController.createPost);
 app.get('/post', authToken, postController.getPosts);
+app.get('/post/search', authToken, postController.getByQyery);
 app.get('/post/:id', authToken, postController.getPostsById);
 app.put('/post/:id', authToken, createPostValidation, postController.updatePost);
 app.delete('/post/:id', authToken, postController.deletePost);
