@@ -24,6 +24,7 @@ app.get('/user/:id', authToken, userControler.getUsersById);
 app.post('/categories', authToken, categoryController.createCategory);
 app.get('/categories', authToken, categoryController.getCategories);
 app.post('/post', authToken, createPostValidation, catergoryValidation, postController.createPost);
+app.get('/post', authToken, postController.getPosts);
 // ...
 
 // É importante exportar a constante `app`,
