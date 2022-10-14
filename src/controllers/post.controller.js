@@ -37,10 +37,13 @@ const updatePost = async (req, res) => {
 };
 
 const deletePost = async (req, res) => {
-  const { id } = req.user;
+  const { id } = req.params;
   const teste = await postService.getPostsById(id);
   if (!teste) { return res.status(404).json({ message: 'Post does not exist' }); }
-  if (id !== teste.userId) { return res.status(401).json({ message: 'Unauthorized user' }); }
+  if (req.user.id !== teste.userId) {
+ return res
+    .status(401).json({ message: 'Unauthorized user' }); 
+}
   await postService.deletePost(id);
   return res.status(204).end();
 };
