@@ -21,7 +21,7 @@ Para realizar as validações de entrada, foi utilizados a biblioteca <strong>JO
 <strong>1. Faça o git clone na sua máquina e entre no diretório:</strong>
  - Lembre-se de clonar o repositório no diretório desejado na sua máquina!
  ```
- git clone git@github.com:BrunoPelegrino/Blogs-API.git
+ git clonegit@github.com:BrunoPelegrino/Blogs-API.git
  ```
  
  <strong>2. Escolha por onde rodar a aplicação: Docker vs Local</strong>
