@@ -2,6 +2,7 @@ module.exports = (sequelize, DataTypes) => {
     const PostCategory = sequelize.define('PostCategory', {
       postId: {
         type: DataTypes.STRING,
+        
       },
       categoryId: DataTypes.STRING
     },
